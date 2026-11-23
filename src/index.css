@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Syne', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-vanta-dark: #08090D;
+  --color-vanta-surface: #0F1118;
+  --color-vanta-surface-card: #131622;
+  --color-vanta-surface-hover: #191D2C;
+  --color-vanta-border: #1E2333;
+  --color-vanta-border-light: #2D344B;
+  --color-vanta-lime: #D4F728;
+  --color-vanta-cyan: #00F0FF;
+  --color-vanta-muted: #8E93A6;
+}
+
+@layer base {
+  body {
+    background-color: #08090D;
+    color: #EDEDF2;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08090D;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E2333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4F728;
+}
+
+/* Smooth noise effect */
+.bg-noise {
+  background-image: radial-gradient(rgba(212, 247, 40, 0.04) 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* Diagonal stripe pattern */
+.bg-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.015),
+    rgba(255, 255, 255, 0.015) 1px,
+    transparent 1px,
+    transparent 16px
+  );
+}
+
+/* Infinite Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle Pulse Glow */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.05); }
+}
+
+.animate-glow {
+  animation: pulse-glow 6s ease-in-out infinite;
+}
